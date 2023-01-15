@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="utf-8">
   <head>
     <meta charset="utf-8"/>
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Task2</title>
     <link rel="stylesheet" href="assets/styles.css">
+
+    <style>
+
+      form {
+        background-color: aqua;
+      }
+
+      #submit {
+        background-color: green;
+      }
+    </style>
+
   </head>
   <body>
-    <p>
-      Hello! Open the developer tools, please.<br />
-      Start by editing the files in <code>src/</code> folder.
-    </p>
+
+<h1>Menu</h1>
+<p id="menufood">AA</p>
+
+<button id="submit">Change language</button>
+
+
+<h1>Random Food</h1>
+<p id="randomfood">Click to get random Food</p>
+
+<button id="random">Random Food</button>
+
+    <script src="index.js"></script>
   </body>
+
 </html>
