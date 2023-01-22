@@ -1,10 +1,13 @@
-console.log('Hello console!');let randomNumber = Math.floor(Math.random() * 100) + 1;
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+//let randomNumber2 = Math.floor(Math.random() * 100) + 1;
+console.log(randomNumber);
 
 const max = 100;
 const min = 1;
 let startTime, endTime;
 let seconds;
 let timeDiff;
+
 
 const guesses = document.querySelector('.guesses');
 const lastResult = document.querySelector('.lastResult');
@@ -13,11 +16,15 @@ const total = document.querySelector('.total')
 const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
 
+
+
 let guessCount = 1;
 let resetButton;
 
+
 checkGuess = () => {
   const userGuess = Number(guessField.value);
+
   startTime = new Date();
   if (guessCount === 1) {
     guesses.textContent = 'Previous guesses: ';
@@ -36,11 +43,12 @@ checkGuess = () => {
     lastResult.textContent = 'Congratulations! You got it right!';
     lastResult.style.backgroundColor = 'green';
     lowOrHi.textContent = '';
-    setGameOver();
+   // setGameOver();
   } else if (guessCount === 10) {
-    lastResult.textContent = '!!!GAME OVER!!!';
+    lastResult.textContent = '!!!GAME OVERR!!';
     lowOrHi.textContent = '';
-    setGameOver();
+
+   // setGameOver();
   } else {
     lastResult.textContent = 'Wrong!';
     lastResult.style.backgroundColor = 'red';
@@ -56,8 +64,26 @@ checkGuess = () => {
   guessField.focus();
 }
 
-
 guessSubmit.addEventListener('click', checkGuess);
+
+
+//ALGORITHM LOOP
+// Will submit new number everytime and after guessing the right number it will stop
+//
+
+while (true) {
+  let randomNumber2 = Math.floor(Math.random() * 100) + 1;
+  document.getElementById("guessField").value = randomNumber2;
+  checkGuess();
+  if (randomNumber2 === randomNumber) {
+    console.log("Correct number guessed");
+    break;
+  }
+}
+
+
+
+
 
 
 setGameOver = () => {
@@ -89,6 +115,4 @@ resetGame = () => {
   randomNumber = Math.floor(Math.random() * max) + min;
 }
 
-
-console.log('Hello console!');
 
