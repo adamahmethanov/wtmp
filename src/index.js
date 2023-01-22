@@ -1,94 +1,50 @@
-console.log('Hello console!');let randomNumber = Math.floor(Math.random() * 100) + 1;
+'use strict';
 
-const max = 100;
-const min = 1;
-let startTime, endTime;
-let seconds;
-let timeDiff;
+let menu = [  {name: 'Lingonberry jam', price: 4.00},
+                {name: 'Mushroom and bean casserole', price: 5.50},
+                {name: 'Chili-flavoured wheat', price: 3.00},
+                {name: 'Vegetarian soup', price: 4.80},
+                {name: 'Pureed root vegetable soup with smoked cheese', price: 8.00}];
 
-const guesses = document.querySelector('.guesses');
-const lastResult = document.querySelector('.lastResult');
-const lowOrHi = document.querySelector('.lowOrHi');
-const total = document.querySelector('.total')
-const guessSubmit = document.querySelector('.guessSubmit');
-const guessField = document.querySelector('.guessField');
+const menuJson = JSON.stringify(menu);
+console.log(menuJson);
+console.log("---")
 
-let guessCount = 1;
-let resetButton;
 
-checkGuess = () => {
-  const userGuess = Number(guessField.value);
-  startTime = new Date();
-  if (guessCount === 1) {
-    guesses.textContent = 'Previous guesses: ';
+
+function isValidMealName(name) {
+  const regex = /^[A-Z][A-Za-z0-9\s\-\/,\(\)]{3,63}$/;
+  return regex.test(name);
+}
+
+menu = menu.sort((a, b) => {
+  if (a.price > b.price) {
+    return -1;
   }
-  guesses.textContent += `${userGuess} `;
+});
+console.log(menu);
+console.log("---")
+////////
 
-  endTime = new Date();
 
-  if (userGuess === randomNumber) {
-    total.textContent = (`Total guess times: ${guessCount}`);
-    console.log(guessCount);
-    timeDiff = endTime - startTime;
-    timeDiff /= 1000;
-    seconds = Math.round(timeDiff);
-    console.log(seconds + " seconds");
-    lastResult.textContent = 'Congratulations! You got it right!';
-    lastResult.style.backgroundColor = 'green';
-    lowOrHi.textContent = '';
-    setGameOver();
-  } else if (guessCount === 10) {
-    lastResult.textContent = '!!!GAME OVER!!!';
-    lowOrHi.textContent = '';
-    setGameOver();
+for (let i = 0; i < menu.length; i++) {
+  const meal = menu[i];
+  if (isValidMealName(meal.name)) {
+    console.log(`Meal name "${meal.name}" is valid.`);
   } else {
-    lastResult.textContent = 'Wrong!';
-    lastResult.style.backgroundColor = 'red';
-    if (userGuess < randomNumber) {
-      lowOrHi.textContent = 'Last guess was too low!';
-    } else if (userGuess > randomNumber) {
-      lowOrHi.textContent = 'Last guess was too high!';
-    }
+    console.log(`Meal name "${meal.name}" is not valid.`);
   }
-
-  guessCount++;
-  guessField.value = '';
-  guessField.focus();
 }
 
+console.log("---")
 
-guessSubmit.addEventListener('click', checkGuess);
-
-
-setGameOver = () => {
-  guessField.disabled = true;
-  guessSubmit.disabled = true;
-  resetButton = document.createElement('button');
-  resetButton.textContent = 'Start new game';
-  document.body.append(resetButton);
-  resetButton.addEventListener('click', resetGame);
-}
-
-resetGame = () => {
-  guessCount = 1;
-
-  const resetParas = document.querySelectorAll('.resultParas p');
-  for (const resetPara of resetParas) {
-    resetPara.textContent = '';
+for (let i = 0; i < menu.length; i++) {
+  const meal = menu[i];
+  if ((meal.price) < 5) {
+    console.log(`${meal.name} price is less than 5. Price: ${meal.price} `);
   }
-
-  resetButton.parentNode.removeChild(resetButton);
-
-  guessField.disabled = false;
-  guessSubmit.disabled = false;
-  guessField.value = '';
-  guessField.focus();
-
-  lastResult.style.backgroundColor = 'white';
-
-  randomNumber = Math.floor(Math.random() * max) + min;
 }
+console.log("---")
 
-
-console.log('Hello console!');
-
+let totalPrice = menu.map(bill => bill.price).reduce((acc, amount) => acc + amount);
+console.log("Total Price of the food is: " + totalPrice)
