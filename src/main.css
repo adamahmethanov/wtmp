@@ -1,0 +1,359 @@
+@charset "UTF-8";
+
+.mt-1, .mt-2, .mb-1, .mb-2, .ml-1, .ml-2, .mr-1, .mr-2, .pt-1, .pt-2, .pb-1, .pb-2, .pl-1, .pl-2, .pr-1, .pr-2 {
+  margin: calc(1 * 1rem);
+  padding: calc(1 * 1rem);
+}
+
+.mt-2 {
+  margin-top: calc(1 * 2rem);
+}
+
+.mb-2 {
+  margin-bottom: calc(1 * 2rem);
+}
+
+.ml-2 {
+  margin-left: calc(1 * 2rem);
+}
+
+.mr-2 {
+  margin-right: calc(1 * 2rem);
+}
+
+.pt-2 {
+  padding-top: calc(1 * 2rem);
+}
+
+.pb-2 {
+  padding-bottom: calc(1 * 2rem);
+}
+
+.pl-2 {
+  padding-left: calc(1 * 2rem);
+}
+
+.pr-2 {
+  padding-right: calc(1 * 2rem);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: none;
+}
+
+
+.custom-cursor {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 350ms ease;
+  transform: translate(-50%, -50%) scale(.3);
+  z-index: 1000;
+}
+.custom-cursor--link {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+body {
+  font-family: "PT Sans", sans-serif;
+  font-size: 15px;
+  background-color: #fff;
+  color: #000;
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+body .float-right {
+  float: right;
+}
+
+body .link {
+  text-decoration: none;
+  color: #773434;
+}
+
+body .text-align-center {
+  text-align: center;
+}
+
+body .color-gray {
+  color: #646464;
+}
+
+body .fs-1 {
+  font-size: 16px;
+}
+
+body .fs-2 {
+  font-size: 22px;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0.5rem 0;
+  line-height: 2rem;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li .search-input {
+  border-radius: 4px;
+  border: 2px solid #773434;
+  padding: 0.25rem;
+}
+
+nav ul .nav-link {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+nav ul .nav-link:hover {
+  color: #000;
+}
+
+header {
+  width: 100%;
+  height: 14rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-line-pack: baseline;
+  align-content: baseline;
+  background-color: #018517;
+
+}
+
+header div.header-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  width: 45%;
+  line-height: 2rem;
+  color: #fff;
+}
+
+header div.header-text .header-title {
+  font-size: 2rem;
+}
+
+header div.header-text .header-slogan {
+  font-size: 1.5rem;
+}
+
+header div.header-image {
+  width: 55%;
+}
+
+header div.header-image img {
+  width: 100%;
+  height: 100%;
+  -webkit-clip-path: polygon(0% 0, 100% 0, 100% 100%, 15% 100%);
+  clip-path: polygon(0% 0, 100% 0, 100% 100%, 15% 100%);
+}
+
+.rest-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  align-content: space-around;
+  justify-content: space-around;
+}
+
+.rest-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+  grid-gap: 10px;
+}
+.rest-container .rest-card {
+  background-color: #e4e4e4;
+  border: 1px solid #773434;
+  box-shadow: 0 1px 2px 1px #646464;
+  border-radius: 4px;
+  height: 16rem;
+}
+
+.rest-container .rest-card .card-image {
+  width: 35%;
+  height: 1rem;
+  padding: 1em;
+}
+
+.rest-container .rest-card .card-image .aligner {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.rest-container .rest-card .card-image img {
+  display: inline-block;
+  max-width: 90%;
+  vertical-align: middle;
+}
+
+.rest-container .rest-card .card-content {
+  position: relative;
+  width: 100%;
+  padding: 5em;
+  height: 10rem;
+}
+
+.rest-container .rest-card .card-content .card-title {
+  line-height: 1.5rem;
+  padding: 1rem 0;
+  font-weight: bold;
+}
+
+.rest-container .rest-card .card-content .card-distance {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  line-height: 1.5rem;
+}
+
+.rest-container .rest-card .card-content .card-list ul {
+  padding: 0;
+}
+
+.rest-container .rest-card .card-content .card-list ul li {
+  padding: 0.1rem 0.25rem;
+}
+
+.button {
+  border-radius: 2px;
+  line-height: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.button i.fas {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background-color: #333;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.button-transparent {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+.grid-row{
+  display: grid;
+  grid-column-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.card h1{
+  margin:5px;
+}
+
+.card > p{
+  flex-grow: 1;
+}
+
+.card-list{
+  padding: 1em;
+}
+
+.img-responsive{
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 640px){
+  .grid-row{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: max-content;
+  grid-gap: 10px;
+}
+.grid-item {
+  background-color: #eee;
+  padding: 20px;
+}
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+.grid-row{
+  display: grid;
+  grid-column-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.card h1{
+  margin:5px;
+}
+
+.card > p{
+  flex-grow: 1;
+}
+
+.img-responsive{
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 640px){
+  .grid-row{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
